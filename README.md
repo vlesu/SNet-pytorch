@@ -75,3 +75,26 @@ python example --num_metrics 8 \
                --outputs_dir "" \
                --jpeg_quality 10               
 ```
+
+### Sample
+
+"Sample" folder contains ready-to-use library JPEGRestorator.py
+
+Usage: 
+```python
+from PIL import Image
+from JPEGRestorator import JPEGRestorator
+
+Restorator = JPEGRestorator("checkpoints/SNet-epoch20-jpeg20.pth")
+im = Image.open("images/monarch_jpeg_q20.png")
+restored_im = Restorator.restore(im)
+restored_im.save("images/monarch_restored.png")           
+```
+Checkpoint trained 20 epoch on JPEG quality 20.
+
+Requirements for JPEG restoration only, using checkpoint attached:
+- Python 3.6
+- PyTorch 1.2.0
+- Numpy 1.15.4
+- Pillow 5.4.1
+
